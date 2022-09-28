@@ -11,24 +11,28 @@
 
 <p>Insira os valores solicitados</p>
 <p>Capital investido</p>
-<input type="number" name="capitalInvestido" id="capitalInvestido" onblur="calcular();">
+<input type="number" name="capitalInvestido" id="capitalInvestido" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 
 <p>Meses</p>
-<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" onblur="calcular();">
+<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" value="24" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 
 <p>Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6842" onblur="calcular();">
+<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6779" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 
 <p>Taxa de DI (praticamente igual à SELIC)</p>
-<input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular();">
+<input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 
 <p>Taxas de rendimento da LCI/LCA</p>
-<input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcularLCI();">
+<input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 
+<p> Taxas de rendimento do CDB</p>
+<input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
 <br>
 O montante final da poupança será R$<div id="montantePoupanca"></div>
-
+<br>
 O montante final da LCI/LCA será R$<div id="montanteLCI"></div>
+<br>
+O montante final do CDB será R$<div id="montanteCDB"></div>
 
 </body>
 </html>
