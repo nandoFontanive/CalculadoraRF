@@ -3,6 +3,8 @@ document.getElementById(capitalInvestido);
 document.getElementById(taxaJurosPoupanca);
 document.getElementById(quantidadeMeses);
 
+-> juntar as 3 funções pra uma só, calcular()
+
 function calculoJurosPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses){
   capitalInvestido = document.getElementById('capitalInvestido').value;
   taxaJurosPoupanca = document.getElementById('taxaJurosPoupanca').value;
@@ -25,22 +27,66 @@ function calculoJurosPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMes
      elemResult.innerNumber = "O resultado é " + Number(calculoJurosPoupanca);
   }
 */
+
+function calcular(){
+  //variáveis gerais
+  const capitalInvestido = Number(document.getElementById('capitalInvestido').value);
+  const taxaJurosPoupanca = Number(document.getElementById('taxaJurosPoupanca').value);
+  const quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
+  
+  //poupança
+  const resultadoPoupanca = document.getElementById('montantePoupanca');
+  const montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100, quantidadeMeses));
+  resultadoPoupanca.innerText = (montantePoupanca.toFixed(2));
+  
+  //LCI
+  const taxaDI = Number(document.getElementById('taxaDI').value);
+  const taxaLCI = Number(document.getElementById('taxaLCI').value);
+  resultadoLCI = document.getElementById('montanteLCI');
+  montanteLCI = capitalInvestido * (Math.pow((1 + ((taxaLCI/100) * taxaDI)), quantidadeMeses/12));
+  resultadoLCI.innerText = (montanteLCI.toFixed(2));
+
+  //CDB
+  taxaCDB = Number(document.getElementById('taxaCDB').value);
+  resultadoCDB = document.getElementById('montanteCDB');
+  rendimentoCDB = capitalInvestido * (Math.pow((1 + ((taxaCDB/100) * taxaDI)), quantidadeMeses/12)-1)
+
+  //cálculo imposto de renda CDB
+  if (quantidadeMeses <= 6){
+    rendimentoCDB = rendimentoCDB * 0.775;
+  }
+    else if (quantidadeMeses > 6 && quantidadeMeses <= 12){
+      rendimentoCDB = rendimentoCDB * 0.8;
+  }
+    else if (quantidadeMeses >12 && quantidadeMeses <= 24){
+      rendimentoCDB = rendimentoCDB * 0.825;
+  }
+    else {
+      rendimentoCDB = rendimentoCDB * 0.85;
+  }
+
+  finalCDB = capitalInvestido + rendimentoCDB;
+  montanteCDB = finalCDB
+  resultadoCDB.innerText = (montanteCDB.toFixed(2));
+  // -> porque não consigo fazer cálculos com montanteCDB??
+}
+/*
 function calcularPoupanca() {
   const capitalInvestido = Number(document.getElementById('capitalInvestido').value);
   const taxaJurosPoupanca = Number(document.getElementById('taxaJurosPoupanca').value);
   const quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
-  console.log({capitalInvestido, taxaJurosPoupanca, quantidadeMeses})
   const elemResult = document.getElementById('montantePoupanca');
 
-  const montantePoupanca = capitalInvestido * (Math.pow((1 + (taxaJurosPoupanca * 12)/100), quantidadeMeses/12));
+  //const montantePoupanca = capitalInvestido * (Math.pow((1 + (taxaJurosPoupanca * 12)/100), quantidadeMeses/12));
+  const montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100, quantidadeMeses));
   elemResult.innerText = (montantePoupanca.toFixed(2));
   }
 
 function calcularLCI() {
-  capitalInvestido = Number(document.getElementById('capitalInvestido').value);
-  taxaDI = Number(document.getElementById('taxaDI').value);
-  taxaLCI = Number(document.getElementById('taxaLCI').value);
-  quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
+  const capitalInvestido = Number(document.getElementById('capitalInvestido').value);
+  const taxaDI = Number(document.getElementById('taxaDI').value);
+  const taxaLCI = Number(document.getElementById('taxaLCI').value);
+  const quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
   
   elemResult = document.getElementById('montanteLCI');
 
@@ -55,20 +101,25 @@ function calcularCDB(){
   quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
   
   elemResult = document.getElementById('montanteCDB');
-  
-  montanteCDB = capitalInvestido * (Math.pow((1 + ((taxaCDB/100) * taxaDI)), quantidadeMeses/12));
-  
+
+  rendimentoCDB = capitalInvestido * (Math.pow((1 + ((taxaCDB/100) * taxaDI)), quantidadeMeses/12)-1)
+
   if (quantidadeMeses < 6){
-    montanteCDB = montanteCDB * 0.775;
+    rendimentoCDB = rendimentoCDB * 0.775;
   }
     else if (quantidadeMeses >= 6 && quantidadeMeses < 12){
-      montanteCDB = montanteCDB * 0.8;
+      rendimentoCDB = rendimentoCDB * 0.8;
   }
     else if (quantidadeMeses >=12 && quantidadeMeses < 24){
-      montanteCDB = montanteCDB * 0.825;
+      rendimentoCDB = rendimentoCDB * 0.825;
   }
     else {
-      montanteCDB = montanteCDB * 0.85;
+      rendimentoCDB = rendimentoCDB * 0.85;
   }
+  finalCDB = capitalInvestido + rendimentoCDB;
+  
+  montanteCDB = finalCDB
+  
   elemResult.innerText = (montanteCDB.toFixed(2));
-}
+  // -> porque não consigo fazer cálculos com montanteCDB??
+}*/
