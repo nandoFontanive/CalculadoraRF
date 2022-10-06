@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,7 @@
 <input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" value="24" onblur="calcular();">
 
 <p>Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6778" onblur="calcular();">
+<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6789" onblur="calcular();">
 
 <p>Taxa de DI (praticamente igual à SELIC)</p>
 <input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular();">
@@ -29,50 +28,11 @@
 <p> Taxas de rendimento do CDB</p>
 <input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur="calcular();">
 <br>
-O montante final da poupança será R$<div id="montantePoupanca"></div>
+O montante final da poupança será<div id="montantePoupanca"></div>
 <br>
-O montante final da LCI/LCA será R$<div id="montanteLCI"></div>
+O montante final da LCI/LCA será<div id="montanteLCI"></div>
 <br>
-O montante final do CDB será R$<div id="montanteCDB"></div>
+O montante final do CDB será<div id="montanteCDB"></div>
 
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de renda fixa</title>
-</head>
-<body>
-    <script src="js/calculadora.js"></script>
-
-<p>Insira os valores solicitados</p>
-<p>Capital investido</p>
-<input type="number" name="capitalInvestido" id="capitalInvestido" onblur="calcular();">
-<!--<input type="number" name="capitalInvestido" id="capitalInvestido" onblur="calcular(); calcularPoupanca(); calcularLCI(); calcularCDB();">-->
-<p>Meses</p>
-<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" value="24" onblur="calcular();">
-
-<p>Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6778" onblur="calcular();">
-
-<p>Taxa de DI (praticamente igual à SELIC)</p>
-<input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular();">
-
-<p>Taxas de rendimento da LCI/LCA</p>
-<input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcular();">
-
-<p> Taxas de rendimento do CDB</p>
-<input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur="calcular();">
-<br>
-O montante final da poupança será R$<div id="montantePoupanca"></div>
-<br>
-O montante final da LCI/LCA será R$<div id="montanteLCI"></div>
-<br>
-O montante final do CDB será R$<div id="montanteCDB"></div>
-
-</body>
->>>>>>> d08b28d7cc475c1cd18c22925067b720d8186512
 </html>
