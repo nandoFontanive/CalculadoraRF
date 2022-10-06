@@ -1,66 +1,37 @@
-/*addEventListener;
-document.getElementById(capitalInvestido);
-document.getElementById(taxaJurosPoupanca);
-document.getElementById(quantidadeMeses);
 
--> juntar as 3 funções pra uma só, calcular()
-
-function calculoJurosPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses){
-  capitalInvestido = document.getElementById('capitalInvestido').value;
-  taxaJurosPoupanca = document.getElementById('taxaJurosPoupanca').value;
-  quantidadeMeses = document.getElementById('quantidadeMeses').value;
-
-  calculoJurosPoupanca = parseFloat(capitalInvestido) + parseFloat(taxaJurosPoupanca) + parseFloat(quantidadeMeses);
-
-  //calculoJurosPoupanca = parseFloat(capitalInvestido) * Math.pow((1 + parseFloat(taxaJurosPoupanca)), parseFloat(quantidadeMeses))- capitalInvestido;
-  document.write(calculoJurosPoupanca.toFixed(2));
-}
-
-function calculoJurosPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses) {
-  capitalInvestido = document.getElementById('capitalInvestido').value;
-  taxaJurosPoupanca = document.getElementById('taxaJurosPoupanca').value;
-  quantidadeMeses = document.getElementById('quantidadeMeses').value;
-  
-  elemResult = document.getElementById('resultado');
-  'resultado' = parseFloat(capitalInvestido) + parseFloat(taxaJurosPoupanca) + parseFloat(quantidadeMeses);
-
-     elemResult.innerNumber = "O resultado é " + Number(calculoJurosPoupanca);
-  }
-*/
 
 function calcularPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses){
-  const resultadoPoupanca = document.getElementById('montantePoupanca');
-  const montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100, quantidadeMeses));
-  resultadoPoupanca.innerText = (montantePoupanca.toFixed(2));
+  capitalInvestido = Number(document.getElementById('capitalInvestido').value);
+  quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
+
+  taxaJurosPoupanca = Number(document.getElementById('taxaJurosPoupanca').value);
+  resultadoPoupanca = document.getElementById('montantePoupanca');
+  montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100, quantidadeMeses));
   
+  resultadoPoupanca.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montantePoupanca));
 }
 
-function calcular(){
-  //variáveis gerais
-  const capitalInvestido = Number(document.getElementById('capitalInvestido').value);
-  const taxaJurosPoupanca = Number(document.getElementById('taxaJurosPoupanca').value);
-  const quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
-  
-  //poupança
-  const resultadoPoupanca = document.getElementById('montantePoupanca');
-  const montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100, quantidadeMeses));
-  //resultadoPoupanca.innerText = (montantePoupanca.toFixed(2));
-  resultadoPoupanca.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montantePoupanca));
-  
-  //LCI
-  const taxaDI = Number(document.getElementById('taxaDI').value);
-  const taxaLCI = Number(document.getElementById('taxaLCI').value);
+function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses){
+  capitalInvestido = Number(document.getElementById('capitalInvestido').value);
+  quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
+
+  taxaDI = Number(document.getElementById('taxaDI').value);
+  taxaLCI = Number(document.getElementById('taxaLCI').value);
   resultadoLCI = document.getElementById('montanteLCI');
   montanteLCI = capitalInvestido * (Math.pow((1 + ((taxaLCI/100) * taxaDI)), quantidadeMeses/12));
-  //resultadoLCI.innerText = (montanteLCI.toFixed(2));
+  
   resultadoLCI.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montanteLCI));
+}
 
-  //CDB
+function calcularCDB(capitalInvestido, taxaDI, taxaCDB, quantidadeMeses){
+  capitalInvestido = Number(document.getElementById('capitalInvestido').value);
+  quantidadeMeses = Number(document.getElementById('quantidadeMeses').value);
+
+  taxaDI = Number(document.getElementById('taxaDI').value);
   taxaCDB = Number(document.getElementById('taxaCDB').value);
   resultadoCDB = document.getElementById('montanteCDB');
   rendimentoCDB = capitalInvestido * (Math.pow((1 + ((taxaCDB/100) * taxaDI)), quantidadeMeses/12)-1)
 
-  //cálculo imposto de renda CDB
   if (quantidadeMeses <= 6){
     rendimentoCDB = rendimentoCDB * 0.775;
   }
@@ -75,11 +46,7 @@ function calcular(){
   }
 
   finalCDB = capitalInvestido + rendimentoCDB;
-  //montanteCDB = finalCDB
-  //resultadoCDB.innerText = (finalCDB.toFixed(2));
   resultadoCDB.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(finalCDB));
-
-  // -> porque não consigo fazer cálculos com montanteCDB??
 }
 /*
 function calcularPoupanca() {
