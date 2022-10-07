@@ -1,0 +1,32 @@
+body {
+    background-color: gainsboro;
+}
+
+.capitalInvestido, .meses, .taxaPoupanca, .taxaDI, .taxaLCI, .taxaCDB {
+    background-color: lavender;
+    font-weight: bolder;
+    color:red;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    text-align: center;
+}
+
+.box-dados {
+    display: grid;
+    background-color: green;
+    text-align: center;
+    display: inline-block;    
+}
+
+.box-resultados {
+    display: grid;
+    display: inline-block;
+    color:blueviolet;
+    font-weight: bolder;
+    
+    
+}
