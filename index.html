@@ -9,12 +9,31 @@
 </head>
 <body>
     <script src="js/calculadora.js"></script>
-
+<h1 class="cabecalho">Calculadora de renda fixa</h1>
 <div class="container">
     <div class="box-dados">
 Insira os valores solicitados
 <p class="capitalInvestido">Capital investido</p>
 <input type="number" name="capitalInvestido" id="capitalInvestido" label="capitalInvestido" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
+
+
+
+<!--
+<div>
+    <input type="range" value="70" min="0" max="100" oninput="rangevalue.value=value"/>
+    <output id="rangevalue">70</output>
+  
+    <br>
+    <br>
+    <br>
+    
+    <input type="range" value="70" min="0" max="100" id="range" oninput="rangenumber.value=value"/>
+    <input type="number" id="rangenumber" min="0" max="100" value="70" oninput="range.value=value">
+  
+  </div>
+  -->
+  
+
 
 <p class="meses">Meses</p>
 <input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" value="24" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
