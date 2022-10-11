@@ -1,14 +1,4 @@
-/*
-dúvidas
-'célula' h1 centralizada?
-trocar background-color de input quando empty?
-
-*/
-body {
-    background-color: gainsboro;
-}
-
-input:invalid, input:empty {
+input:invalid{
     background-color: red;
 }
 
@@ -20,78 +10,39 @@ input:valid {
     background-color:grey;
 }
 
-#montanteLCI{
-    background-color:red;
-    color: chartreuse;
-}
-
-.sliderCapitalInvestido{
-    color: aqua;
-}
-
-#montantePoupanca{
-    background-color: aqua;
-    color: blue;
-}
-
-#montanteCDB{
-    background-color: blue;
-}
-
-
-.cabecalho {
-    color: lawngreen;
-    background-color: fuchsia;
-    width: 50%;
-    justify-content: center;
-    margin: 10px;
-    display: flex;
-}
-
 .capitalInvestido, .meses, .taxaPoupanca, .taxaDI, .taxaLCI, .taxaCDB {
-    color:blue;
-    background-color: lavender;
     font-weight: bolder;
-    
+}
+
+#montanteCDB, #montanteLCI, #montantePoupanca{
+    color: blueviolet;
 }
 
 .container {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    
 }
 
 .box-dados {
-    display: flex;
-    background-color: indianred;
+    font-weight: bolder;
     text-align: center;
     justify-content: center;
+    background-color: rgb(219, 233, 245);
     display: inline-block;
     align-items: center;
-    justify-content: center;
-    margin: 30px;
-    border-style: solid;
-    border-color:darkmagenta;
-    
+    margin: 0 20px 0 0;
 }
 
 .box-resultados {
-    display: flex;
+    font-weight: bolder;
     display: inline-block;
     justify-content: center;
-    background-color: darkgoldenrod;
+    background-color: rgb(219, 233, 245);
     vertical-align: middle;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    font-weight: bolder;
-    grid-template-columns: 2;
-
     align-self: center;
-    border: 50px;
-    border-color: brown;
-    border-style: solid;
 }
 
 

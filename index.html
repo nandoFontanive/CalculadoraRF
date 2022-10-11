@@ -9,16 +9,15 @@
 </head>
 <body>
     <script src="js/calculadora.js"></script>
-<h1 class="cabecalho">Calculadora de renda fixa</h1>
 <div class="container">
     <div class="box-dados">
 Insira os valores solicitados
 <p class="capitalInvestido">Capital investido</p>
-<input type="number" name="capitalInvestido" id="capitalInvestido" label="capitalInvestido" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
-
+<input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular('CDB')">
 
 
 <!--
+    slider
 <div>
     <input type="range" value="70" min="0" max="100" oninput="rangevalue.value=value"/>
     <output id="rangevalue">70</output>
@@ -31,24 +30,23 @@ Insira os valores solicitados
     <input type="number" id="rangenumber" min="0" max="100" value="70" oninput="range.value=value">
   
   </div>
-  -->
+-->
   
 
-
 <p class="meses">Meses</p>
-<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="0" max="1200" value="24" onblur="calcularPoupanca(); calcularLCI(); calcularCDB();">
+<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="1" max="1200" value="24" onblur="calcular()">
 
 <p class="taxaPoupanca">Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6789" onblur="calcularPoupanca();">
+<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.679" onblur="calcular('poupanca');">
 
 <p class="taxaDI">Taxa de DI (praticamente igual à SELIC)</p>
-<input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcularLCI(); calcularCDB();">
+<input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular('DI')">
 
 <p class="taxaLCI">Taxas de rendimento da LCI/LCA</p>
-<input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcularLCI();">
+<input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcular('LCI')">
 
 <p class="taxaCDB">Taxas de rendimento do CDB</p>
-<input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur=" calcularCDB();">
+<input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur="calcular('CDB')">
 <br>
 </div>
 
