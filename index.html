@@ -13,31 +13,13 @@
     <div class="box-dados">
 Insira os valores solicitados
 <p class="capitalInvestido">Capital investido</p>
-<input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular('CDB')">
-
-
-<!--
-    slider
-<div>
-    <input type="range" value="70" min="0" max="100" oninput="rangevalue.value=value"/>
-    <output id="rangevalue">70</output>
-  
-    <br>
-    <br>
-    <br>
-    
-    <input type="range" value="70" min="0" max="100" id="range" oninput="rangenumber.value=value"/>
-    <input type="number" id="rangenumber" min="0" max="100" value="70" oninput="range.value=value">
-  
-  </div>
--->
-  
+<input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular()">
 
 <p class="meses">Meses</p>
 <input type="number" name="quantidadeMeses" id="quantidadeMeses" min="1" max="1200" value="24" onblur="calcular()">
 
 <p class="taxaPoupanca">Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.679" onblur="calcular('poupanca');">
+<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6811" onblur="calcular('poupanca');">
 
 <p class="taxaDI">Taxa de DI (praticamente igual à SELIC)</p>
 <input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular('DI')">
@@ -52,9 +34,9 @@ Insira os valores solicitados
 
 <div class="box-resultados">
 O montante final da poupança será<div id="montantePoupanca"></div>
-<br>
+<hr>
 O montante final da LCI/LCA será<div id="montanteLCI"></div>
-<br>
+<hr>
 O montante final do CDB será<div id="montanteCDB"></div>
 </div>
 </div>
