@@ -40,8 +40,6 @@ function calcularCDB(capitalInvestido, taxaDI, taxaCDB, quantidadeMeses) {
   const rendimentoCDBBruto = capitalInvestido * cdb3;
   const rendimentoCDBLiquido = calcularCDBLiquido(rendimentoCDBBruto, quantidadeMeses)
   
-  //rendimentoCDB = capitalInvestido * (Math.pow((1 + ((taxaCDB/100) * taxaDI)), quantidadeMeses/12)-1)
-
   const finalCDB = capitalInvestido + rendimentoCDBLiquido;
   resultadoCDB = document.getElementById('montanteCDB');
   resultadoCDB.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(finalCDB));
@@ -69,7 +67,6 @@ function calcularPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses) 
   const poupanca3 = Math.pow(poupanca1, quantidadeMeses);
 
   const montantePoupanca = capitalInvestido * poupanca3;
-  //const montantePoupanca = capitalInvestido * (Math.pow(1 + taxaJurosPoupanca / 100), quantidadeMeses);
   
   resultadoPoupanca = document.getElementById('montantePoupanca');
   resultadoPoupanca.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montantePoupanca));
@@ -81,7 +78,28 @@ function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses) {
   const lci3 = Math.pow(lci1, lci2);
 
   const montanteLCI = capitalInvestido * lci3;
-  //const montanteLCI = capitalInvestido * (Math.pow((1 + ((taxaLCI/100) * taxaDI)), quantidadeMeses/12));
   resultadoLCI = document.getElementById('montanteLCI');
   resultadoLCI.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montanteLCI));
 }
+
+
+const rangeInputs = document.getElementById('input[type="range"]')
+const numberInput = document.getElementById('capitalInvestido')
+
+function handleInputChange(e) {
+  let target = e.target
+  if (e.target.type !== 'range') {
+    target = document.getElementById('range')
+  }
+  const min = target.min
+  const max = target.max
+  const val = target.value
+
+  target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+}
+
+rangeInputs.forEach(input => {
+  input.addEventListener('input', handleInputChange)
+})
+
+numberInput.addEventListener('input', handleInputChange)
