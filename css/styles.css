@@ -4,14 +4,34 @@ input:invalid{
 
 input:valid {
     background-color: lightgreen;
+    
+    
 }
 
+input[type="range"] {
+    -webkit-appearance: none;
+    margin-right: 15px;
+    width: 100px;
+    height: 7px;
+    background: blueviolet;
+    border-radius: 5px;
+}
+  
 #taxaDI, #taxaJurosPoupanca{
     background-color:grey;
+    width: 60px;
 }
 
 .capitalInvestido, .meses, .taxaPoupanca, .taxaDI, .taxaLCI, .taxaCDB {
     font-weight: bolder;
+}
+
+input[id="capitalInvestido"] {
+    width: 100px;
+}
+
+input[id="rangenumber"], input[id="taxaLCI"], input[id="taxaCDB"] {
+    width: 40px;
 }
 
 #montanteCDB, #montanteLCI, #montantePoupanca{

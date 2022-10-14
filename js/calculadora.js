@@ -83,18 +83,20 @@ function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses) {
 }
 
 
+
+
 const rangeInputs = document.getElementById('input[type="range"]')
-const numberInput = document.getElementById('capitalInvestido')
+const numberInput = document.getElementById('input[type="number"]')
 
 function handleInputChange(e) {
   let target = e.target
   if (e.target.type !== 'range') {
-    target = document.getElementById('range')
-  }
+    target = document.getElementById('quantidadeMeses')
+  } 
   const min = target.min
   const max = target.max
   const val = target.value
-
+  
   target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
 }
 

@@ -12,19 +12,20 @@
 <div class="container">
     <div class="box-dados">
 Insira os valores solicitados
-<p class="capitalInvestido">Capital investido</p>
-<input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular()" oninput="range.value=value">
+<p class="capitalInvestido">Capital investido em R$</p>
+<input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular()">
 
-<div>
-    <input type="range" value="70" min="0" max="100" id="slider" oninput="rangenumber.value=value"/>
-    <input type="number" id="rangenumber" min="0" max="100" value="70" oninput="range.value=value">
+<p class="meses">Por quantos meses deseja investir?</p>
+<!--<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="1" max="1200" value="24" onblur="calcular()">-->
+
+
+<div class="slider">
+<input type="range" value="24" min="0" max="240" id="quantidadeMeses" oninput="rangenumber.value=value; calcular()">
+<input type="number" id="rangenumber" min="0" max="240" value="24" oninput="range.value=value">
 </div>
 
-<p class="meses">Meses</p>
-<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="1" max="1200" value="24" onblur="calcular()">
-
 <p class="taxaPoupanca">Taxas de juros mensal da poupança</p>
-<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6811" onblur="calcular('poupanca');">
+<input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6798" onblur="calcular('poupanca');">
 
 <p class="taxaDI">Taxa de DI (praticamente igual à SELIC)</p>
 <input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular('DI')">
