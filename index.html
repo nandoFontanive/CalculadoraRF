@@ -21,14 +21,16 @@ Insira os valores solicitados
 
 <div class="slider">
 <input type="range" value="24" min="0" max="240" id="quantidadeMeses" oninput="rangenumber.value=value; calcular()">
-<input type="number" id="rangenumber" min="0" max="240" value="24" oninput="range.value=value">
+<input type="number" class="no-spin" id="rangenumber" min="0" max="240" value="24" oninput="quantidadeMeses.value=value" onblur="calcular()">
 </div>
 
 <p class="taxaPoupanca">Taxas de juros mensal da poupança</p>
 <input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6798" onblur="calcular('poupanca');">
+<p class="obs">(Não é necessário alterar este campo)</p>
 
 <p class="taxaDI">Taxa de DI (praticamente igual à SELIC)</p>
 <input type="number" name="taxaDI" id="taxaDI" min="0" max="100" value="0.1365" onblur="calcular('DI')">
+<p class="obs">(Não é necessário alterar este campo)</p>
 
 <p class="taxaLCI">Taxas de rendimento da LCI/LCA</p>
 <input type="number" name="taxaLCI" id="taxaLCI" min="0" max="1000" value="100" onblur="calcular('LCI')">

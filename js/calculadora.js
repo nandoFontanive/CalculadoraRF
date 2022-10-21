@@ -20,7 +20,7 @@ function calcular(tipo) {
     calcularCDB(capitalInvestido, taxaDI, taxaCDB, quantidadeMeses);
     return;
   }
-//pq esses calcularX estão repetidos aqui? esses dentro dos ifs não são suficientes?
+
   calcularPoupanca(capitalInvestido, taxaJurosPoupanca, quantidadeMeses);
   calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses);
   calcularCDB(capitalInvestido, taxaDI, taxaCDB, quantidadeMeses);
@@ -33,16 +33,16 @@ function calcularMeses(quantidadeMeses) {
 
 function calcularCDB(capitalInvestido, taxaDI, taxaCDB, quantidadeMeses) {
   
-  const cdb1 = (1 + ((taxaCDB / 100) * taxaDI));
-  const cdb2 = calcularMeses(quantidadeMeses);
-  const cdb3 = Math.pow(cdb1, cdb2) - 1;
+  const jurosCompostosCDB = (1 + ((taxaCDB / 100) * taxaDI));
+  const periodoCDB = calcularMeses(quantidadeMeses);
+  const resultadoFinalCDB = Math.pow(jurosCompostosCDB, periodoCDB) - 1;
 
-  const rendimentoCDBBruto = capitalInvestido * cdb3;
+  const rendimentoCDBBruto = capitalInvestido * resultadoFinalCDB;
   const rendimentoCDBLiquido = calcularCDBLiquido(rendimentoCDBBruto, quantidadeMeses)
   
-  const finalCDB = capitalInvestido + rendimentoCDBLiquido;
+  const montanteFinalCDB = capitalInvestido + rendimentoCDBLiquido;
   resultadoCDB = document.getElementById('montanteCDB');
-  resultadoCDB.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(finalCDB));
+  resultadoCDB.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montanteFinalCDB));
 }
 
 function calcularCDBLiquido(rendimentoCDBBruto, quantidadeMeses) {
@@ -83,7 +83,7 @@ function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses) {
 }
 
 
-
+//
 
 const rangeInputs = document.getElementById('input[type="range"]')
 const numberInput = document.getElementById('input[type="number"]')

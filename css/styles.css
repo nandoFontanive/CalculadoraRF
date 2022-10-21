@@ -4,12 +4,10 @@ input:invalid{
 
 input:valid {
     background-color: lightgreen;
-    
-    
 }
 
 input[type="range"] {
-    -webkit-appearance: none;
+    appearance: none;
     margin-right: 15px;
     width: 100px;
     height: 7px;
@@ -70,4 +68,18 @@ hr {
     border-style: inset;
     border-width: 2px;
     border-color:purple;
-} 
+}
+
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.no-spin {
+    -appearance:textfield;
+}
+
+.obs {
+    font-size:smaller;
+    margin-top: 2px;
+}
