@@ -115,7 +115,7 @@ function addBpm() {
   
   function minusBpm() {
   if (document.getElementById("screen").value)
-  return document.getElementById("screen" ).value = parseInt(document.getElementById("screen").value)- 1;
+  return document.getElementById("screen" ).value = parseInt(document.getElementById("screen").value) - 1;
   bpmInput.value--;
   }
   
