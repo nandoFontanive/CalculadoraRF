@@ -106,19 +106,3 @@ rangeInputs.forEach(input => {
 numberInput.addEventListener('input', handleInputChange)
 
 //
-
-function addBpm() {
-  if(document.getElementById("screen").value) return
-  document.getElementById("screen").value = parseInt(document.getElementById("screen").value) +  1;
-  bpmInput.value++;
-  }
-  
-  function minusBpm() {
-  if (document.getElementById("screen").value)
-  return document.getElementById("screen" ).value = parseInt(document.getElementById("screen").value) - 1;
-  bpmInput.value--;
-  }
-  
-  function setTempo() {
-  document.getElementById("screen").value = document.getElementById("bpmInput").value;
-  }

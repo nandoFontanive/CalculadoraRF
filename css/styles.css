@@ -28,8 +28,12 @@ input[id="capitalInvestido"] {
     width: 100px;
 }
 
-input[id="rangenumber"], input[id="taxaLCI"], input[id="taxaCDB"] {
+input[id="taxaLCI"], input[id="taxaCDB"] {
     width: 40px;
+}
+
+input[id="rangenumber"] {
+    width: 25px;
 }
 
 #montanteCDB, #montanteLCI, #montantePoupanca{
@@ -37,9 +41,14 @@ input[id="rangenumber"], input[id="taxaLCI"], input[id="taxaCDB"] {
 }
 
 .container {
+    height: 100vh;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	
+	
+    align-items: base;
+    align-content: center;
 }
 
 .box-dados {
@@ -48,18 +57,19 @@ input[id="rangenumber"], input[id="taxaLCI"], input[id="taxaCDB"] {
     justify-content: center;
     background-color: rgb(219, 233, 245);
     display: inline-block;
+    vertical-align: middle;
     align-items: center;
-    margin: 0 20px 0 0;
+    margin-right: 5px;
 }
 
 .box-resultados {
     font-weight: bolder;
-    display: inline-block;
+    text-align: center;
     justify-content: center;
     background-color: rgb(219, 233, 245);
+    display: inline-block;
     vertical-align: middle;
     align-items: center;
-    text-align: center;
     align-self: center;
 }
 
@@ -77,6 +87,7 @@ hr {
 
 .no-spin {
     -appearance:textfield;
+    
 }
 
 .obs {
