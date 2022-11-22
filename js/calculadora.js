@@ -84,25 +84,26 @@ function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses) {
 
 document.addEventListener("click", handle);
 
-function handle(evt) {
-   if (evt.target.type === "button") {
-    handleBtn(evt.target);
+function handle(evento) {
+   if (evento.target.type === "button") {
+    controleBotao(evento.target);
     calcular();
     return
   }
 }
 
-function handleBtn(btn) {
-  const elem = document.querySelector(`#${btn.dataset.for}`);
-  const nwValue = +elem.value + (btn.value === "-" ? -1 : 1);
-  elem.value = nwValue >= +elem.min ? nwValue : elem.min;
-  atualizarInputMeses(elem.value);
+function controleBotao(botao) {
+  const elemento = document.querySelector(`#${botao.dataset.for}`);
+  const nwValue = +elemento.value + (botao.value === "-" ? -1 : 1);
+  elemento.value = nwValue >= +elemento.min ? nwValue : elemento.min;
+  atualizarInputMeses(elemento.value);
 }
 
 function atualizarInputMeses(novoValor){
   const input = document.getElementById('rangenumber');
   input.value = novoValor;
 }
+
 //
 
 const rangeInputs = document.getElementById('input[type="range"]')
