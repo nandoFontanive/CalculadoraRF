@@ -80,8 +80,29 @@ function calcularLCI(capitalInvestido, taxaDI, taxaLCI, quantidadeMeses) {
   resultadoLCI = document.getElementById('montanteLCI');
   resultadoLCI.innerText = (new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(montanteLCI));
 }
+//
 
+document.addEventListener("click", handle);
 
+function handle(evt) {
+   if (evt.target.type === "button") {
+    handleBtn(evt.target);
+    calcular();
+    return
+  }
+}
+
+function handleBtn(btn) {
+  const elem = document.querySelector(`#${btn.dataset.for}`);
+  const nwValue = +elem.value + (btn.value === "-" ? -1 : 1);
+  elem.value = nwValue >= +elem.min ? nwValue : elem.min;
+  atualizarInputMeses(elem.value);
+}
+
+function atualizarInputMeses(novoValor){
+  const input = document.getElementById('rangenumber');
+  input.value = novoValor;
+}
 //
 
 const rangeInputs = document.getElementById('input[type="range"]')

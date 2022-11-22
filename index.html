@@ -10,24 +10,28 @@
 <body>
     <script src="js/calculadora.js"></script>
 <div class="container">
-    <div class="box-dados">
+    <div class="box-resultados">
+        O montante final da poupança será<div id="montantePoupanca"></div>
+        <hr>
+        O montante final da LCI/LCA será<div id="montanteLCI"></div>
+        <hr>
+        O montante final do CDB será<div id="montanteCDB"></div>
+    </div>
+<br>
+<div class="box-dados">
+<br>
 Insira os valores solicitados
 <p class="capitalInvestido">Capital investido em R$</p>
 <input type="number" name="capitalInvestido" id="capitalInvestido" required label="capitalInvestido" onblur="calcular()">
 
 <p class="meses">Por quantos meses deseja investir?</p>
-<!--<input type="number" name="quantidadeMeses" id="quantidadeMeses" min="1" max="1200" value="24" onblur="calcular()">-->
-
 
 <div class="slider">
 <input type="range" value="24" min="0" max="240" id="quantidadeMeses" oninput="rangenumber.value=value; calcular()">
+<input type="button" value="-" data-for="quantidadeMeses">
+<input type="button" value="+" data-for="quantidadeMeses">
 <input type="number" class="no-spin" id="rangenumber" min="0" max="240" value="24" oninput="quantidadeMeses.value=value" onblur="calcular()">
 </div>
-
-
-
-
-
 
 <p class="taxaPoupanca">Taxas de juros mensal da poupança</p>
 <input type="number" name="taxaJurosPoupanca" id="taxaJurosPoupanca" min="0" max="100" value="0.6798" onblur="calcular('poupanca');">
@@ -43,15 +47,9 @@ Insira os valores solicitados
 <p class="taxaCDB">Taxas de rendimento do CDB</p>
 <input type="number" name="taxaCDB" id="taxaCDB" min="0" max="1000" value="110" onblur="calcular('CDB')">
 <br>
-</div>
 <br>
-<div class="box-resultados">
-O montante final da poupança será<div id="montantePoupanca"></div>
-<hr>
-O montante final da LCI/LCA será<div id="montanteLCI"></div>
-<hr>
-O montante final do CDB será<div id="montanteCDB"></div>
 </div>
+
 </div>
 </body>
 </html>
